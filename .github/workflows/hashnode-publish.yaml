@@ -1,0 +1,19 @@
+name: Publish to Hashnode
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Publish to Hashnode
+        uses: hashnode/github-action@v1
+        with:
+          hashnodeApiKey: ${{ secrets.HASHNODE_API_KEY }}
